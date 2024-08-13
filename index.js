@@ -61,6 +61,21 @@ const questions = [
     name: "email",
     message: "Provide an email to contact you.",
   },
+
+  //License
+  {
+    type:'list',
+    name:'license',
+    message:'Which license type does your project have?',
+    choices:[
+        'MIT License',
+        'Apache 2.0 License',
+        'ISC License',
+        'IBM Public License 1.0',
+        'Mozilla Public License 2.0',
+        'No License'
+      ]
+  }
 ];
 
 // TODO: Create a function to write README file
@@ -77,7 +92,7 @@ function writeToFile(fileName, data) {
 // TODO: Create a function to initialize app
 function init() {
   inquirer.prompt(questions).then((response) => 
-    writeToFile('README.md',generateMarkdown(response))
+    writeToFile('./generated/README.md',generateMarkdown(response))
 
 );
 

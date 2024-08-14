@@ -64,38 +64,38 @@ const questions = [
 
   //License
   {
-    type:'list',
-    name:'license',
-    message:'Which license type does your project have?',
-    choices:[
-        'MIT License',
-        'Apache 2.0 License',
-        'ISC License',
-        'IBM Public License 1.0',
-        'Mozilla Public License 2.0',
-        'No License'
-      ]
-  }
+    type: "list",
+    name: "license",
+    message: "Which license type does your project have?",
+    choices: [
+      "MIT License",
+      "Apache 2.0 License",
+      "ISC License",
+      "IBM Public License 1.0",
+      "Mozilla Public License 2.0",
+      "No License",
+    ],
+  },
 ];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, err =>{
-        if (err) {
-            console.error(err)
-        } else {
-            console.log('README.md Successfully Created');
-        }
-    })
+  fs.writeFile(fileName, data, (err) => {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log("README.md Successfully Created");
+    }
+  });
 }
 
 // TODO: Create a function to initialize app
 function init() {
-  inquirer.prompt(questions).then((response) => 
-    writeToFile('./generated/README.md',generateMarkdown(response))
-
-);
-
+  inquirer
+    .prompt(questions)
+    .then((response) =>
+      writeToFile("./generated/README.md", generateMarkdown(response))
+    );
 }
 
 // Function call to initialize app
